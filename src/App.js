@@ -44,7 +44,6 @@ function App() {
       }
     })
     .then((response)=>{
-      console.log(response)
         if(response.data.success){
           setTimeout(()=>{
             getTodoItem()

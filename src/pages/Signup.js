@@ -26,7 +26,6 @@ function Signup() {
             email:email,
             password:password
         }
-        console.log(process.env.REACT_APP_NUCLEUS_URL)
         axios({
             method: 'post',
             url:`${process.env.REACT_APP_NUCLEUS_URL}create-user`,

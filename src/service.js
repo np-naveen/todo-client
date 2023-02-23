@@ -11,7 +11,6 @@ async function checkIsUserLoggedIn(){
                 'authorization':`Bearer ${token}`}
         })
         .then((response)=>{
-            console.log(response.data.success)
             if(response.data.success){
                 window.location.href = '/'
             }
