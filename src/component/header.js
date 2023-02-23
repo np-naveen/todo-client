@@ -4,14 +4,15 @@ function Header() {
     const [userName,setUserName] = useState('')
 
     useEffect(()=>{
-        const username = localStorage.getItem('username');
+        const username = localStorage.getItem('todo-username');
         setUserName(username)
     })
 
     async function handleLogout(event){
         event.preventDefault();
         localStorage.removeItem('todo-token')
-        localStorage.removeItem('username')
+        localStorage.removeItem('todo-username')
+        setUserName(null)
         window.location.href = '/login'
     }
 
@@ -21,9 +22,10 @@ function Header() {
             <div className="d-flex justify-content-center align-item-center">
                 <h1>Todo</h1>
             </div>
-            {userName != '' ? 
-                <div className="d-flex flex-row-reverse">
-                    <button className="logout-btn" onClick={handleLogout}> Logout </button>
+            {userName? 
+                <div className="d-flex justify-content-between">
+                    <div>{userName}</div>
+                    <button className="logout-btn" onClick={handleLogout}>Logout </button>
                 </div>:<></>
             }
         </div>

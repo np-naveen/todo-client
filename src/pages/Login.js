@@ -17,6 +17,9 @@ function Login() {
         setErr('')
         const username = event.target[0].value.trim()
         const password = event.target[1].value.trim()
+        if(username == '' || password == ''){
+            return setErr('Please fill required fields')
+        }
         const data = {
             username:username,
             password:password
@@ -48,15 +51,16 @@ function Login() {
         <div className="col-sm-8">
             <form className="mt-5" onSubmit={handleLoginForm}>
                 <div className="mb-3">
-                    <label className="form-label">Email address</label>
+                    <label className="form-label">Email address *</label>
                     <input type="email" className="form-control" aria-describedby="emailHelp"/>
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Password</label>
+                    <label className="form-label">Password *</label>
                     <input type="password" className="form-control"/>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
+            {err && <span className="text-danger">{err}</span>}
             <div>
                 Create account here <a href="/signup">Signup</a>
             </div>
