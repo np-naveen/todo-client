@@ -31,9 +31,7 @@
     background-color: #8c8888;
     color:#fff;
 }
-.delete-btn{
 
-}
 @media (max-width:767.98px) {
     .todo-container{
         width: 18rem;

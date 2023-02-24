@@ -7,6 +7,7 @@ import Header from "./component/header";
 function App() {
   const [msg,setMsg] = useState('')
   const [item,setItem] = useState([])
+  const[isLoggedIn,setIsLoggedIn] = useState(false)
   const username = localStorage.getItem('todo-username')
 
   async function getTodoItem(){
@@ -58,8 +59,10 @@ function App() {
   useEffect(()=>{
     const token = localStorage.getItem('todo-token');
     if(token == null){
+      setIsLoggedIn(false)
       window.location.href = '/login'
     }else{
+      setIsLoggedIn(true)
       getTodoItem();
     }
   },[])
@@ -124,7 +127,8 @@ function App() {
   return (
     <>
       <Header />
-      <AddTodo handleAddTodo={handleAddTodo}/>
+      {isLoggedIn && 
+      <AddTodo handleAddTodo={handleAddTodo}/>}
       {msg && <div className="d-flex justify-content-center">
         <span className="text-success">{msg}</span>
       </div>}
