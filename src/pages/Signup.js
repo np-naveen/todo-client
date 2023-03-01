@@ -35,7 +35,7 @@ function Signup() {
                 setMsg('Account created successfully')
                 setTimeout(()=>{
                     window.location.href = '/login'
-                },800)
+                },500)
             })
             .catch((err)=>{
                 

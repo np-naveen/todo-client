@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import checkIsUserLoggedIn from "../service";
 import Header from "../component/header";
 
@@ -8,8 +8,11 @@ function Login() {
 
     const[err,setErr] = useState('');
 
+    const userNameInput = useRef()
+
     useEffect(()=>{
         checkIsUserLoggedIn();
+        userNameInput.current.focus();
     },[])
 
     const  handleLoginForm = async (event) =>{
@@ -52,7 +55,7 @@ function Login() {
             <form className="mt-5" onSubmit={handleLoginForm}>
                 <div className="mb-3">
                     <label className="form-label">Email address *</label>
-                    <input type="email" className="form-control" aria-describedby="emailHelp"/>
+                    <input type="email" className="form-control" aria-describedby="emailHelp" ref={userNameInput}/>
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Password *</label>

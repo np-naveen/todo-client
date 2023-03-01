@@ -46,9 +46,7 @@ function App() {
     })
     .then((response)=>{
         if(response.data.success){
-          setTimeout(()=>{
             getTodoItem()
-          },50)
         }
     })
     .catch((err)=>{
@@ -92,9 +90,7 @@ function App() {
         if(response.data.success){
           setMsg('New item added')
           document.getElementById('input-todo').value = ''
-          setTimeout(()=>{
             getTodoItem()
-          },50)
         }
       })
       .catch(()=>{
@@ -117,9 +113,7 @@ function App() {
     })
     .then((response)=>{
       if(response.data.success){
-        setTimeout(()=>{
           getTodoItem()
-        },50)
       }
     })
   }
